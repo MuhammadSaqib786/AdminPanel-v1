@@ -23,6 +23,7 @@
     "@mantine/ds": "^6.0.4",
     "@tabler/icons-react": "^2.11.0",
     "electron-updater": "^5.3.0",
+    "sqlite-electron": "^2.2.5",
     "tsconfig-paths": "^4.1.2",
     "vite-tsconfig-paths": "^4.0.7"
   },

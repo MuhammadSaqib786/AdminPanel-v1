@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Container, Grid, Col } from '@mantine/core';
-import AddEmployeeForm from './AddEmployeeForm';
+import AddEmployeeForm, { Employee } from './AddEmployeeForm';
 
 import Footers from './Footers';
 import { DoubleNavbar } from './DoubleNavbar';
+import { createEmployee } from '@/Data/interfaces/database';
 
 
 
 const AppLayout = () => {
   const [newEmployeeId, setNewEmployeeId] = useState<number>();
-  const handleAddEmployee = () => {
-    
+  const handleAddEmployee = (employee: Employee) => {
+    createEmployee(employee)
   };
   
   
