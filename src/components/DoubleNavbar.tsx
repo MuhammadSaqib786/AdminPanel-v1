@@ -129,6 +129,7 @@ const mainLinksMockdata = [
 const linksMockdata = [
   'Add',
   'View'
+
 ];
 
 export function DoubleNavbar() {

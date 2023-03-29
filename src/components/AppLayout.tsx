@@ -8,6 +8,7 @@ import { DoubleNavbar } from './DoubleNavbar';
 import { Employee } from '@/entities/Employee';
 import sendAsync from "@/message-control/renderer";
 import ViewEmployeeList from './ViewEmployeeList';
+import DeleteEmployee from './DeleteEmployee';
 
 
 
@@ -27,6 +28,23 @@ const AppLayout = () => {
         console.error('Error adding employee:', error);
       });
   };
+
+  const handleDeleteEmployee = (id: number) => {
+    console.log(id);
+    const sql = `DELETE FROM employees WHERE id=${id}`;
+  
+    sendAsync(sql)
+      .then(() => {
+        console.log('Employee deleted successfully');
+        sendAsync("SELECT * FROM employees").then((data) =>
+          setEmployees(data)
+        );
+      })
+      .catch((error) => {
+        console.error('Error deleting employee:', error);
+      });
+  };
+  
   
   const [employees, setEmployees] = useState([]);
 
@@ -46,6 +64,7 @@ const AppLayout = () => {
         </Col>
         <Col sm={9} style={{ paddingRight: '16px' }}>
         <AddEmployeeForm onAddEmployee={handleAddEmployee} />
+        <DeleteEmployee onDeleteEmployee={handleDeleteEmployee} />
         <ViewEmployeeList employees={employees} />
         </Col>
       </Grid>
