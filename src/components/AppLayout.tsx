@@ -3,14 +3,26 @@ import { Container, Grid, Col } from '@mantine/core';
 import AddEmployeeForm from './AddEmployeeForm';
 
 import Footers from './Footers';
+
 import { DoubleNavbar } from './DoubleNavbar';
+import { Employee } from '@/entities/Employee';
+import sendAsync from "@/message-control/renderer";
 
 
 
 const AppLayout = () => {
   const [newEmployeeId, setNewEmployeeId] = useState<number>();
-  const handleAddEmployee = () => {
-    
+  const handleAddEmployee = (employee : Employee) => {
+    console.log(employee)
+    const sql = `INSERT INTO employees (id, name, department, position) VALUES (${employee.id}, '${employee.name}', '${employee.department}', '${employee.position}')`;
+
+    sendAsync(sql)
+      .then(() => {
+        console.log('Employee added successfully');
+      })
+      .catch((error) => {
+        console.error('Error adding employee:', error);
+      });
   };
   
   
