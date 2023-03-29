@@ -1,4 +1,5 @@
 import { app, BrowserWindow, shell, ipcMain } from 'electron'
+require('../../src/message-control/main')
 import { release } from 'node:os'
 import { join } from 'node:path'
 import { update } from './update'
