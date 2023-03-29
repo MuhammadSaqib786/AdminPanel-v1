@@ -127,14 +127,8 @@ const mainLinksMockdata = [
 ];
 
 const linksMockdata = [
-  'Security',
-  'Settings',
-  'Dashboard',
-  'Releases',
-  'Account',
-  'Orders',
-  'Clients',
-  'Databases'
+  'Add',
+  'View'
 ];
 
 export function DoubleNavbar() {
