@@ -9,6 +9,7 @@ import { Employee } from '@/entities/Employee';
 import sendAsync from "@/message-control/renderer";
 import ViewEmployeeList from './ViewEmployeeList';
 import DeleteEmployee from './DeleteEmployee';
+import UpdateEmployeeForm from './UpdateEmployeeForm';
 
 
 
@@ -45,6 +46,19 @@ const AppLayout = () => {
       });
   };
   
+  const handleUpdateEmployee = (updatedEmployee: Employee) => {
+    console.log(updatedEmployee);
+    const sql = `UPDATE employees SET name='${updatedEmployee.name}', department='${updatedEmployee.department}', position='${updatedEmployee.position}' WHERE id=${updatedEmployee.id}`;
+    console.log(sql)
+    sendAsync(sql)
+      .then(() => {
+        console.log('Employee updated successfully');
+        sendAsync("SELECT * FROM employees").then(data => setEmployees(data));
+      })
+      .catch((error) => {
+        console.error('Error updating employee:', error);
+      });
+  };
   
   const [employees, setEmployees] = useState([]);
 
@@ -66,6 +80,7 @@ const AppLayout = () => {
         <AddEmployeeForm onAddEmployee={handleAddEmployee} />
         <DeleteEmployee onDeleteEmployee={handleDeleteEmployee} />
         <ViewEmployeeList employees={employees} />
+        <UpdateEmployeeForm onUpdateEmployee={handleUpdateEmployee} />
         </Col>
       </Grid>
       <Footers />
