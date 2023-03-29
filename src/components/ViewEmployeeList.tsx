@@ -15,7 +15,7 @@ function ViewEmployeeList(props) {
   ));
   return (
     <div>
-      <Title order={2}>Below are Employee Details</Title>
+      <Title order={2} style={{ marginTop: 20, marginBottom: 20 }}>Below are Employee Details</Title>
       <Table striped highlightOnHover withBorder>
         <thead>
         <tr>
