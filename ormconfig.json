@@ -1,8 +1,7 @@
 {
+  "name": "default",
   "type": "sqlite",
-  "synchronize": true,
-  "logging": true,
-  "logger": "simple-console",
-  "database": "database.sqlite",
-  "entities": ["src/entities/*.js"]
+  "database": "public/db.sqlite3",
+  "entities": ["src/entity/*.ts"],
+  "synchronize": true
 }

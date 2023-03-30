@@ -3,7 +3,7 @@ import sendAsync from "@/message-control/renderer";
 import { Table } from '@mantine/core';
 import { Title } from '@mantine/core';
 
-function ViewEmployeeList(props) {
+function ViewEmployeeList(props: { employees: any[]; }) {
   const rows = props.employees.map((employee) => (
     <tr key={employee.id}>
       <td align="center">{employee.id}</td>

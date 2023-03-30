@@ -4,7 +4,7 @@
     "emitDecoratorMetadata": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": ["DOM", "DOM.Iterable", "ES6"],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -25,7 +25,8 @@
       "Components/*": ["./src/components/*"],
       "Interfaces/*": ["./src/Data/interfaces/","./src/Data/interfaces/*"],
       "Objects/*": ["./src/Data/Objects/*"],
-      "Utilities/*": ["./src/utilities/*"]
+      "Utilities/*": ["./src/utilities/*"],
+      "Entities/*":["./src/entity/*"]
     },
   },
   "include": ["src"],

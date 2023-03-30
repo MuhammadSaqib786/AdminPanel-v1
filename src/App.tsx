@@ -4,6 +4,9 @@ import Update from "@/components/update";
 import "./App.scss";
 import AppLayout from "./components/AppLayout";
 import sendAsync from "@/message-control/renderer";
+import "reflect-metadata"
+
+
 
 function App() {
   useEffect(() => {

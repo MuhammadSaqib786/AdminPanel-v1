@@ -5,7 +5,7 @@ import AddEmployeeForm from './AddEmployeeForm';
 import Footers from './Footers';
 
 import { DoubleNavbar } from './DoubleNavbar';
-import { Employee } from '@/entities/Employee';
+import { Employee } from '@/entity/Employee';
 import sendAsync from "@/message-control/renderer";
 import ViewEmployeeList from './ViewEmployeeList';
 import DeleteEmployee from './DeleteEmployee';
@@ -22,10 +22,10 @@ const AppLayout = () => {
     sendAsync(sql)
       .then(() => {
         console.log('Employee added successfully');
-        sendAsync("SELECT * FROM employees").then(data => setEmployees(data));
+        sendAsync("SELECT * FROM employees").then((data: React.SetStateAction<never[]>) => setEmployees(data));
         
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.error('Error adding employee:', error);
       });
   };
@@ -37,11 +37,11 @@ const AppLayout = () => {
     sendAsync(sql)
       .then(() => {
         console.log('Employee deleted successfully');
-        sendAsync("SELECT * FROM employees").then((data) =>
+        sendAsync("SELECT * FROM employees").then((data: React.SetStateAction<never[]>) =>
           setEmployees(data)
         );
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.error('Error deleting employee:', error);
       });
   };
@@ -53,9 +53,9 @@ const AppLayout = () => {
     sendAsync(sql)
       .then(() => {
         console.log('Employee updated successfully');
-        sendAsync("SELECT * FROM employees").then(data => setEmployees(data));
+        sendAsync("SELECT * FROM employees").then((data: React.SetStateAction<never[]>) => setEmployees(data));
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.error('Error updating employee:', error);
       });
   };
@@ -63,7 +63,7 @@ const AppLayout = () => {
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    sendAsync("SELECT * FROM employees").then(data => setEmployees(data));
+    sendAsync("SELECT * FROM employees").then((data: React.SetStateAction<never[]>) => setEmployees(data));
   }, []);
  
   
